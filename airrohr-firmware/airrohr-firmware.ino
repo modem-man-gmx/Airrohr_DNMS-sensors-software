@@ -1667,7 +1667,6 @@ static void webserver_config_send_body_get(String &page_content)
 	}
 	page_content += FPSTR(TABLE_TAG_OPEN);
 	add_form_checkbox(Config_wlan_nopwd_enabled, FPSTR(INTL_NOPWD));
-	static constexpr char CFG_KEY_WLAN_NOPWD_ENABLED[] PROGMEM = "wlan_nopwd_enabled";
 	add_form_input(page_content, Config_wlanssid, FPSTR(INTL_FS_WIFI_NAME), LEN_WLANSSID - 1);
 	add_form_input(page_content, Config_wlanpwd, FPSTR(INTL_PASSWORD), LEN_CFG_PASSWORD - 1);
 	page_content += FPSTR(TABLE_TAG_CLOSE_BR);
