@@ -4980,7 +4980,7 @@ static void display_values()
 	uint8_t screen_count = 0;
 	uint8_t screens[8];
 	int line_count = 0;
-	debug_outln_info(F("output values to display..."));
+//	debug_outln_info(F("output values to display..."));
 	if (cfg::ppd_read)
 	{
 		pm10_value = last_value_PPD_P1;
@@ -5276,6 +5276,13 @@ static void display_values()
 			display_lines[2] = std::move(tmpl(F("PM10: {v} µg/m³"), check_display_value(pm10_value, -1, 1, 6)));
 			break;
 		}
+
+		String Dumpline(display_lines[0]);
+		Dumpline += F(" | ");
+		Dumpline += display_lines[1];
+		Dumpline += F(" | ");
+		Dumpline += display_lines[2];
+		debug_outln_info(Dumpline);
 
 		if (oled_ssd1306)
 		{
